@@ -5,7 +5,7 @@ function PersonCard({ name, parents, address }) {
     <div className="person-card">
       <h2 className="person-name">{name}</h2>
       <p className="person-parents">
-        <strong>S/o</strong> {parents[0]} <strong>&amp;</strong> {parents[1]}<br />
+        {parents[0]} <strong>&amp;</strong> {parents[1]}<br />
         {address.join(', ')}
       </p>
     </div>
