@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import './Countdown.css'
 
-const TARGET_DATE = new Date('2026-08-23T00:00:00')
+const TARGET_DATE = new Date('2026-08-23T10:00:00')
 
 function getTimeLeft() {
   const diff = TARGET_DATE - Date.now()
