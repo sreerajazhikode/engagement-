@@ -1,0 +1,29 @@
+.app {
+  min-height: 100vh;
+  background-color: var(--color-bg);
+}
+
+.invitation-content {
+  background-color: var(--color-bg);
+}
+
+.invitation-border-top {
+  height: 6px;
+  background: linear-gradient(
+    90deg,
+    var(--color-pink),
+    var(--color-gold),
+    var(--color-pink-dark),
+    var(--color-gold),
+    var(--color-pink)
+  );
+}
+
+@keyframes pageReveal {
+  0%   { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.invitation-content {
+  animation: pageReveal 1s ease both;
+}

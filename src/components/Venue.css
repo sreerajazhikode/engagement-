@@ -1,0 +1,66 @@
+.venue-section {
+  padding: 48px 20px 64px;
+  background: var(--color-bg);
+}
+
+.venue-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.venue-card {
+  background: linear-gradient(145deg, var(--color-white) 0%, var(--color-cream) 100%);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: 40px 32px;
+  box-shadow: var(--shadow-card);
+  margin: 32px 0;
+}
+
+.venue-name {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 500;
+  color: var(--color-gold-dark);
+  margin-bottom: 8px;
+}
+
+.venue-meta {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-bottom: 8px;
+  line-height: 1.7;
+}
+
+.venue-date-badge {
+  display: inline-block;
+  padding: 6px 20px;
+  border: 1.5px solid var(--color-gold-light);
+  border-radius: 50px;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  color: var(--color-gold-dark);
+  margin-bottom: 24px;
+  letter-spacing: 0.05em;
+}
+
+.venue-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.venue-buttons .btn-gold {
+  padding: 8px 18px;
+  font-size: 0.78rem;
+}
+
+@media (max-width: 480px) {
+  .venue-card {
+    padding: 28px 20px;
+  }
+}

@@ -1,0 +1,98 @@
+.invitation {
+  padding: 80px 20px 48px;
+  text-align: center;
+  background: linear-gradient(180deg, var(--color-cream) 0%, var(--color-bg) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Corner ornaments */
+.invitation::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    radial-gradient(ellipse 60% 40% at 50% 0%, rgba(244, 194, 194, 0.25) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.invitation-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.blessing-text {
+  font-family: var(--font-script);
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
+  color: var(--color-text-muted);
+  margin-bottom: 32px;
+  letter-spacing: 0.02em;
+}
+
+.main-heading {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 6vw, 3.8rem);
+  font-weight: 300;
+  color: var(--color-gold-dark);
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  margin-bottom: 12px;
+}
+
+.main-heading span {
+  font-weight: 600;
+  color: var(--color-pink-dark);
+}
+
+.names-banner {
+  margin: 32px 0;
+}
+
+.names-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.name-groom,
+.name-bride {
+  font-family: var(--font-script);
+  font-size: clamp(2.8rem, 8vw, 5rem);
+  color: var(--color-gold-dark);
+  line-height: 1.1;
+}
+
+.name-ampersand {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  color: var(--color-pink-dark);
+  font-weight: 300;
+}
+
+.invite-prose {
+  font-family: var(--font-heading);
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--color-text-muted);
+  line-height: 1.9;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.invite-prose strong {
+  font-style: normal;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.gold-line {
+  width: 80px;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+  margin: 24px auto;
+}
