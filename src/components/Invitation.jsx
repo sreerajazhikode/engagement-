@@ -9,8 +9,8 @@ export default function Invitation() {
         <div className="gold-line" />
 
         <h1 className="main-heading">
-          We Are<br />
-          <span>Getting Engaged</span>
+          <span className="main-heading-pre">We Are</span>
+          <span className="main-heading-main">Getting Engaged</span>
         </h1>
 
         <div className="gold-line" />
@@ -26,8 +26,11 @@ export default function Invitation() {
         <div className="gold-line" />
 
         <p className="invite-prose">
-          With great joy and love, we invite you to share in the happiness of our
-          engagement. Your presence will make our special day truly memorable.
+          A beautiful new chapter begins...<br />
+          With great joy, we are delighted to
+          announce our engagement. Though we celebrate this moment with our
+          families, your blessings and heartfelt wishes are truly cherished as
+          we begin our journey together.
         </p>
       </div>
     </section>

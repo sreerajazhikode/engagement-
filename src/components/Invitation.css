@@ -32,18 +32,38 @@
 }
 
 .main-heading {
-  font-family: var(--font-heading);
-  font-size: clamp(2.2rem, 6vw, 3.8rem);
-  font-weight: 300;
-  color: var(--color-gold-dark);
-  line-height: 1.2;
-  letter-spacing: 0.04em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
   margin-bottom: 12px;
 }
 
-.main-heading span {
-  font-weight: 600;
-  color: var(--color-pink-dark);
+.main-heading-pre {
+  font-family: var(--font-heading);
+  font-size: clamp(1.1rem, 3vw, 1.6rem);
+  font-weight: 300;
+  color: var(--color-text-muted);
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+}
+
+.main-heading-main {
+  font-family: var(--font-script);
+  font-size: clamp(2rem, 6vw, 3.2rem);
+  font-weight: 400;
+  line-height: 1.15;
+  background: linear-gradient(
+    135deg,
+    var(--color-gold-dark) 0%,
+    var(--color-gold) 40%,
+    var(--color-pink-dark) 70%,
+    var(--color-gold-dark) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 0.01em;
 }
 
 .names-banner {
@@ -55,15 +75,50 @@
   align-items: center;
   justify-content: center;
   gap: 16px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
-.name-groom,
-.name-bride {
-  font-family: var(--font-script);
-  font-size: clamp(2.8rem, 8vw, 5rem);
-  color: var(--color-gold-dark);
+
+/* Sreeraj — serif font with gold shimmer */
+.name-groom {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  font-weight: 600;
   line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: linear-gradient(
+    120deg,
+    var(--color-gold-dark) 0%,
+    var(--color-gold) 45%,
+    #f0d878 60%,
+    var(--color-gold-dark) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 2px 6px rgba(180, 140, 60, 0.28));
+}
+
+/* Anusree — serif font with rose-pink shimmer */
+.name-bride {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  font-weight: 600;
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: linear-gradient(
+    120deg,
+    var(--color-pink-dark) 0%,
+    #e8788a 40%,
+    #f4a0b0 60%,
+    var(--color-pink-dark) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 2px 6px rgba(212, 128, 138, 0.3));
 }
 
 .name-ampersand {

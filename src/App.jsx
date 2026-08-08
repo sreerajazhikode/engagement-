@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import Envelope from './components/Envelope'
 import Invitation from './components/Invitation'
 import CoupleDetails from './components/CoupleDetails'
@@ -7,15 +7,33 @@ import Venue from './components/Venue'
 import Gallery from './components/Gallery'
 import Footer from './components/Footer'
 import Countdown from './components/Countdown'
+import song from './assets/Hoo.mp3.m4a'
 import './styles/App.css'
 
 function App() {
   const [opened, setOpened] = useState(false)
+  const [muted, setMuted] = useState(false)
+  const audioRef = useRef(null)
+
+  const handleOpen = () => {
+    setOpened(true)
+    if (audioRef.current) {
+      audioRef.current.play().catch(() => {})
+    }
+  }
+
+  const toggleMute = () => {
+    if (audioRef.current) {
+      audioRef.current.muted = !muted
+      setMuted(m => !m)
+    }
+  }
 
   return (
     <div className="app">
+      <audio ref={audioRef} src={song} loop preload="auto" />
       {!opened ? (
-        <Envelope onOpen={() => setOpened(true)} />
+        <Envelope onOpen={handleOpen} />
       ) : (
         <main className="invitation-content fade-in-up">
           {/* Decorative top border */}
@@ -50,6 +68,12 @@ function App() {
 
           <Footer />
         </main>
+      )}
+
+      {opened && (
+        <button className="music-toggle" onClick={toggleMute} title={muted ? 'Unmute' : 'Mute'}>
+          {muted ? '🔇' : '🎵'}
+        </button>
       )}
     </div>
   )

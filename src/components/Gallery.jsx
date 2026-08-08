@@ -1,10 +1,10 @@
 import { useState, useEffect, useCallback } from 'react'
+import { createPortal } from 'react-dom'
 import './Gallery.css'
 
 import photoGroup         from '../assets/images/photo-group.jpg.jpeg'
 import photoHands         from '../assets/images/photo-hands.jpg.jpeg'
 import photoMall          from '../assets/images/photo-mall.jpg.jpeg'
-import photoOutdoor1      from '../assets/images/photo-outdoor1.jpg.jpeg'
 import photoForest        from '../assets/images/photo-forest.jpg.jpeg'
 import photoIllustration1 from '../assets/images/photo-illustration1.jpg.jpeg'
 import photoPoster        from '../assets/images/photo-poster.jpg.jpeg'
@@ -13,12 +13,11 @@ import photoStreet        from '../assets/images/photo-street.jpg.jpeg'
 const PHOTOS = [
   { id: 1,  src: photoPoster,        label: 'Getting Engaged' },
   { id: 2,  src: photoIllustration1, label: 'Our Story' },
-  { id: 3,  src: photoOutdoor1,      label: 'Together' },
-  { id: 4,  src: photoForest,        label: 'Forest Walk' },
-  { id: 5,  src: photoMall,          label: 'Mall Day' },
-  { id: 6,  src: photoStreet,        label: 'Street Smiles' },
-  { id: 7,  src: photoHands,         label: 'Holding Hands' },
-  { id: 8,  src: photoGroup,         label: 'Family Gathering' },
+  { id: 3,  src: photoForest,        label: 'Forest Walk' },
+  { id: 4,  src: photoMall,          label: 'Mall Day' },
+  { id: 5,  src: photoStreet,        label: 'Street Smiles' },
+  { id: 6,  src: photoHands,         label: 'Holding Hands' },
+  { id: 7,  src: photoGroup,         label: 'Family Gathering' },
 ]
 
 export default function Gallery() {
@@ -27,6 +26,16 @@ export default function Gallery() {
   const close  = () => setLightbox(null)
   const prev   = useCallback(() => setLightbox(i => (i - 1 + PHOTOS.length) % PHOTOS.length), [])
   const next   = useCallback(() => setLightbox(i => (i + 1) % PHOTOS.length), [])
+
+  /* Lock body scroll when lightbox is open */
+  useEffect(() => {
+    if (lightbox !== null) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => { document.body.style.overflow = '' }
+  }, [lightbox])
 
   /* Keyboard navigation */
   useEffect(() => {
@@ -41,6 +50,7 @@ export default function Gallery() {
   }, [lightbox, prev, next])
 
   return (
+    <>
     <section className="gallery-section">
       <div className="gallery-inner">
         <h2 className="section-title">Our Gallery</h2>
@@ -80,9 +90,10 @@ export default function Gallery() {
           ✦ Tap a photo to view ✦
         </p>
       </div>
+    </section>
 
-      {/* Lightbox */}
-      {lightbox !== null && (
+      {/* Lightbox — rendered via portal directly on body */}
+      {lightbox !== null && createPortal(
         <div
           className="lightbox-backdrop"
           onClick={close}
@@ -115,8 +126,9 @@ export default function Gallery() {
             <button className="lightbox-nav lightbox-prev" onClick={prev}>‹</button>
             <button className="lightbox-nav lightbox-next" onClick={next}>›</button>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
-    </section>
+    </>
   )
 }

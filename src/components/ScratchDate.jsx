@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect, useCallback } from 'react'
 import './ScratchDate.css'
 
-const SCRATCH_THRESHOLD = 60   // % of pixels scratched to auto-reveal
+const SCRATCH_THRESHOLD = 30   // % of pixels scratched to auto-reveal
 
 export default function ScratchDate() {
   const canvasRef = useRef(null)
@@ -67,11 +67,11 @@ export default function ScratchDate() {
     if (lastPos.current) {
       ctx.moveTo(lastPos.current.x, lastPos.current.y)
       ctx.lineTo(x, y)
-      ctx.lineWidth = 38
+      ctx.lineWidth = 80
       ctx.lineCap = 'round'
       ctx.stroke()
     } else {
-      ctx.arc(x, y, 22, 0, Math.PI * 2)
+      ctx.arc(x, y, 50, 0, Math.PI * 2)
       ctx.fill()
     }
     lastPos.current = { x, y }
@@ -80,7 +80,7 @@ export default function ScratchDate() {
     const total = canvas.width * canvas.height
     const sample = ctx.getImageData(0, 0, canvas.width, canvas.height).data
     let transparent = 0
-    for (let i = 3; i < sample.length; i += 40) {  // step 10px
+    for (let i = 3; i < sample.length; i += 16) {  // step ~4px
       if (sample[i] === 0) transparent++
     }
     const pct = Math.min(100, Math.round((transparent / (total / 40)) * 100))
