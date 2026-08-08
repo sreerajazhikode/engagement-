@@ -7,7 +7,7 @@ import Venue from './components/Venue'
 import Gallery from './components/Gallery'
 import Footer from './components/Footer'
 import Countdown from './components/Countdown'
-import song from './assets/Hoo.mp3.m4a'
+import song from './assets/hoo.mp3.m4a'
 import './styles/App.css'
 
 function App() {
